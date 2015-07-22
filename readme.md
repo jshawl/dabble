@@ -1,23 +1,21 @@
 # Dabble
 
-## Commands
+## Installation
+
+    $ npm install -g dabble
+
+## Usage
 
 ```
-$ dabble [ init | new | . ]
+$ dabble [update <filename>]
 ```
 
-Creates a new dabble project.
+## Config
 
 ```
 .dabble/
-  |__id # blank until push / save / open
-  |__name # dabble config name "My cool dabble"
-```
-
-```
-$ dabble update
-```
-
-```
-$ dabble update
+  |__ files
+     [
+      { id: 123456789.html, token: 98123kjhsadkjhakdjh }
+     ] 
 ```
