@@ -4,5 +4,5 @@ module.exports = function(){
   console.log(process.cwd())
   var time = (new Date).getTime()
   var toFile = process.cwd() + "/dabble-" + time + ".html"
-  fs.createReadStream(__dirname + "/dabble.html").pipe(fs.createWriteStream(toFile))
+  fs.createReadStream(__dirname + "/index.html").pipe(fs.createWriteStream(toFile))
 }
