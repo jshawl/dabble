@@ -1,6 +1,6 @@
 {
   "name": "dabble",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "## Commands",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,6 @@
     "commander": "^2.8.1"
   },
   "bin": {
-    "dabble": "dabble"
+    "dabble": "./dabble"
   }
 }
