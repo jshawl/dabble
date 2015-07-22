@@ -1,6 +1,6 @@
 {
   "name": "dabble",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "## Commands",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/jshawl/dabble#readme",
   "dependencies": {
-    "commander": "^2.8.1"
+    "commander": "^2.8.1",
+    "request": "^2.60.0"
   },
   "bin": {
     "dabble": "./dabble"
