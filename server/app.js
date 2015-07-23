@@ -6,6 +6,10 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
+app.get("/", function(req, res){
+  res.send("dabble!")
+})
+
 app.post("/", function(req, res){
   fs.writeFile(__dirname+"/public/"+req.body.name, req.body.content, function(err){
     res.send( err )
