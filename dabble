@@ -3,8 +3,9 @@
 var app = require("commander")
 app
   .version('0.0.1')
+  .command('save', 'publishes a dabble')
   .parse(process.argv)
 
-var dabble = require("./src/dabble")
+var Dabble = require("./src/dabble")
 
-dabble()
+new Dabble()
