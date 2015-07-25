@@ -7,7 +7,6 @@ var Dabble = function(){
     this.time = (new Date).getTime()
     this.filename = this.time + ".html"
     this.toFile = process.cwd() +"/"+ this.filename
-    console.log(this.toFile)
     fs.createReadStream(__dirname + "/index.html").pipe(fs.createWriteStream(this.toFile))
     var editor = require('child_process').spawn(process.env.EDITOR, [this.toFile], {stdio: 'inherit'})
     editor.on('exit', function(arg){
@@ -28,7 +27,6 @@ Dabble.save = function(file){
     if(dab.status == "error."){
       console.log(dab.message) 
     }else{
-      console.log("New dabble created!")
       console.log(dab.url)
     }
     process.exit()
