@@ -1,6 +1,6 @@
 var request = require("request")
 var fs = require("fs")
-var host = "http://localhost:3041" //"http://dabble.site/"
+var host = "http://dabble.site/" //"http://localhost:3041" 
 var open = require("open")
 
 var Dabble = function(){
@@ -30,8 +30,6 @@ Dabble.save = function(file){
     }else{
       console.log("New dabble created!")
       console.log(dab.url)
-      console.log("Open dabble with:")
-      console.log("    dabble -o " + dab.filename)
     }
     process.exit()
   })
