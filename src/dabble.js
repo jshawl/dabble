@@ -1,6 +1,6 @@
 var request = require("request")
 var fs = require("fs")
-var host = "http://localhost:3041/"
+var host = "http://dabble.site/"
 var open = require("open")
 
 var Dabble = function(){
