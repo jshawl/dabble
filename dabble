@@ -6,12 +6,19 @@ var Dabble = require("./src/dabble")
 app
   .version('0.0.1')
   .option('-s, --save <filename>','A filename')
+  .option('-o, --open <filename>','A filename')
 
 app
   .parse(process.argv)
 
-if(app.save){
+if( app.save ){
  Dabble.save( app.save )
-}else{
+} 
+
+if( app.open ){
+  Dabble.open(app.open)
+}
+
+if( !(app.save || app.open) ){
   new Dabble()
 }

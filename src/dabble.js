@@ -1,6 +1,7 @@
 var request = require("request")
 var fs = require("fs")
-var host = "http://localhost:3041"
+var host = "http://localhost:3041/"
+var open = require("open")
 
 var Dabble = function(){
     this.time = (new Date).getTime()
@@ -23,18 +24,22 @@ Dabble.save = function(file){
       content: contents
     } 
   }, function( err, res, body ){
-    if(err){
-      console.log(err) 
+    var dab = JSON.parse(body)
+    if(dab.status == "error."){
+      console.log(dab.message) 
     }else{
-      console.log(JSON.parse(body).url)
+      console.log("New dabble created!")
+      console.log(dab.url)
+      console.log("Open dabble with:")
+      console.log("    dabble -o " + dab.filename)
     }
     process.exit()
   })
 }
 
-Dabble.prototype = {
-  save: function(){
-  }
+Dabble.open = function(file){
+  console.log(file)
+  open(host + file)
 }
 
 module.exports = Dabble

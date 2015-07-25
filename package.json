@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jshawl/dabble#readme",
   "dependencies": {
     "commander": "^2.8.1",
+    "open": "0.0.5",
     "request": "^2.60.0"
   },
   "bin": {
