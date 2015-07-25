@@ -5,13 +5,7 @@ var Dabble = require("./src/dabble")
 
 app
   .version('0.0.1')
-  .command('save', 'publishes a dabble')
-  .action(function(one, two){
-    console.log(one, two)
-  })
-
-app
-  .command('new', 'creates a new dabble')
+  .option('-s, --save <filename>','A filename', Dabble.save)
 
 app
   .parse(process.argv)

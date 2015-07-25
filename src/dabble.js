@@ -12,19 +12,21 @@ var Dabble = function(){
     }.bind(this))
 }
 
+Dabble.save = function(file){
+  var contents = fs.readFileSync(file,"utf8")
+  request.post("http://dabble.site/", { 
+    form:{
+      name: file,
+      content: contents
+    } 
+  }, function( err, res, body ){
+    console.log("http://dabble.site/" + file)
+    process.exit()
+  })
+}
+
 Dabble.prototype = {
   save: function(){
-    var file = fs.readFileSync(this.toFile,"utf8")
-    var time = this.time
-    request.post("http://dabble.site/", { 
-      form:{
-	name: time + ".html",
-	content: file
-      } 
-    }, function( err, res, body ){
-      console.log("http://dabble.site/" + time + ".html")
-      process.exit()
-    })
   }
 }
 
