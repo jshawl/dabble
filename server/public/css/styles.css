@@ -1,0 +1,8 @@
+.command{
+  font-family: monospace;
+}
+
+
+.command::before{
+  content: "$ "
+}

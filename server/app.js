@@ -2,12 +2,14 @@ var express = require("express")
 var bodyParser = require("body-parser")
 var fs = require("fs")
 var app = express()
+var hbs = require("hbs")
+app.set('view engine', 'hbs')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' }))
 app.use(express.static('public'))
 
 app.get("/", function(req, res){
-  res.send("dabble!")
+  res.render("index")
 })
 
 function version( file ){

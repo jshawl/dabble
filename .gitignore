@@ -3,4 +3,5 @@ npm-debug.log
 .DS_Store
 dabble-*.html
 server/public
+!server/public/css
 !server/public/.keep
