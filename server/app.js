@@ -11,29 +11,31 @@ app.get("/", function(req, res){
 })
 
 function version( file ){
+  var pathTo = __dirname + "/public/" 
   if(file.match(/-v[0-9]+\.html$/)){
     var num = parseInt(file.match(/-v([0-9]+)\.html$/)[1])
     var name = file.replace(/[0-9]+\.html$/, ++num + ".html")
   } else {
     var name = file.replace(".html","-v1.html")
   }
-  if(fs.fileExistsSync(name)){
-    version( name )
+  if(fs.existsSync(pathTo + name)){
+    return version( name )
   }
   return name
 }
 
 app.post("/", function(req, res){
-  var toFile = __dirname + "/public/" + req.body.name
-  if(req.body.name.match(/\.html$/)){
-    if(fs.fileExistsSync(toFile)){
-      toFile = version(toFile)
+  var pathTo = __dirname + "/public/" 
+  var file = req.body.name
+  if(file.match(/\.html$/)){
+    if(fs.existsSync(pathTo + file)){
+      file = version(file)
     }
-    fs.writeFile(__dirname+"/public/"+req.body.name, req.body.content, function(err){
+    fs.writeFile(pathTo + file, req.body.content, function(err){
       res.json({
 	status: "ok.",
-	url: "http://" + req.headers.host + "/" + req.body.name,
-	filename: req.body.name
+	url: "http://" + req.headers.host + "/" + file,
+	filename: file
       })
     })
   } else {
