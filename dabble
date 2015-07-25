@@ -1,11 +1,17 @@
 #!/usr/bin/env node
 
 var app = require("commander")
+var Dabble = require("./src/dabble")
+
 app
   .version('0.0.1')
   .command('save', 'publishes a dabble')
+  .action(function(one, two){
+    console.log(one, two)
+  })
+
+app
+  .command('new', 'creates a new dabble')
+
+app
   .parse(process.argv)
-
-var Dabble = require("./src/dabble")
-
-new Dabble()
