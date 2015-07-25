@@ -12,7 +12,10 @@ app.get("/", function(req, res){
 
 app.post("/", function(req, res){
   fs.writeFile(__dirname+"/public/"+req.body.name, req.body.content, function(err){
-    res.send( err )
+    res.json({
+      status: "ok.",
+      url: "http://" + req.headers.host + "/" + req.body.name
+    })
   })
 })
 

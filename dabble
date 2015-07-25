@@ -5,7 +5,13 @@ var Dabble = require("./src/dabble")
 
 app
   .version('0.0.1')
-  .option('-s, --save <filename>','A filename', Dabble.save)
+  .option('-s, --save <filename>','A filename')
 
 app
   .parse(process.argv)
+
+if(app.save){
+ Dabble.save( app.save )
+}else{
+  new Dabble()
+}
