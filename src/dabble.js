@@ -2,9 +2,10 @@ var request = require("request")
 var fs = require("fs")
 var host = "http://dabble.site/" //"http://localhost:3041" 
 var open = require("open")
+var moment = require("moment")
 
 var Dabble = function(){
-    this.time = (new Date).getTime()
+    this.time = moment().format("YYYY-MM-DD-HH:mm:ss")
     this.filename = this.time + ".html"
     this.toFile = process.cwd() +"/"+ this.filename
     fs.createReadStream(__dirname + "/index.html").pipe(fs.createWriteStream(this.toFile))
